@@ -19,6 +19,14 @@ const Associations = () => {
 
     return(
         <>
+         <div className="btn-form-box">
+            <Link to={`/formulaire`}>
+                    <button className="btn-form">See Form</button>
+            </Link> 
+            <Link to={`/admin`}>
+                    <button className="btn-form">See Admin</button>
+            </Link> 
+            </div>
           <div className="box-1">
             {associations.map((association) => {
                 return (
@@ -28,12 +36,12 @@ const Associations = () => {
                 <h3>{association.slogan}</h3>
                 {/* <p>{association.description}</p>    */}
                 <Link to={`/${association.slug}`}>
-                    <button >See {association.name}'s' page</button>
+                    <button className="btn-asso">See {association.name}'s' page</button>
                 </Link> 
                 </div>
                 )
             })}
-          </div>
+            </div>
         </>
     )
 }

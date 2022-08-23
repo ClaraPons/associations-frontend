@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom'
 import moment from "moment"
+import '../App.css'
 
 const Association = () => {
 
@@ -32,21 +33,26 @@ const Association = () => {
 
 
     return(
-        <>
-            <h1>{association.name}</h1>
-            <img src={association.image} />
-            <h2>{association.slogan}</h2>
-            <p>{association.description}</p>
+        <div className="box-asso-message">
+            <div className="box-asso">
+                {/* <h1>{association.name}</h1> */}
+                <img className="img-asso" src={association.image} />
+                <h2>{association.slogan}</h2>
+                <p className="description">{association.description}</p>
+            </div>
+            <div className="box-message">
+            <h2 className="title">Messages</h2>
             {messageAsso.map((message) => {
                 return (
-                <div key={message.content}>
+                <div className="message" key={message.content}>
                     <h3>{message.name}</h3>
-                    <p>{message.content}</p>
-                    <p>{moment(message.date).format("MMM Do YY")}</p>
+                    <p><strong>Content :</strong> {message.content}</p>
+                    <p><strong>Date :</strong> {moment(message.date).format("MMM Do YY")}</p>
                 </div>
                 )
             })}
-        </>
+            </div>
+        </div>
     )
 }
 
